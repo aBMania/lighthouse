@@ -155,7 +155,7 @@ jobs:
             - name: Build lcli dockerfile (with push)
               run: |
                   docker build \
-                      --build-arg PORTABLE=true \
+                      --build-arg FEATURES=portable \
                       --tag ${LCLI_IMAGE_NAME}:${VERSION}${VERSION_SUFFIX} \
                       --file ./lcli/Dockerfile .
                   docker push ${LCLI_IMAGE_NAME}:${VERSION}${VERSION_SUFFIX}

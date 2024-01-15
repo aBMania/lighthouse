@@ -4,8 +4,10 @@
 FROM rust:1.73.0-bullseye AS builder
 RUN apt-get update && apt-get -y upgrade && apt-get install -y cmake libclang-dev
 COPY . lighthouse
-ARG PORTABLE
-ENV PORTABLE $PORTABLE
+ARG FEATURES
+ARG PROFILE=release
+ENV FEATURES $FEATURES
+ENV PROFILE $PROFILE
 RUN cd lighthouse && make install-lcli
 
 FROM ubuntu:22.04
